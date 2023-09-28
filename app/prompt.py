@@ -54,11 +54,11 @@ def merge_content(topic, content_1_str, content_2_str):
     response = response['choices'][0]['message']['content'].strip()
 
 
-    splitted_strings: list[str] = response.split("\n")
+    # splitted_strings: list[str] = response.split("\n")
 
-    # remove empty strings
-    sections = [value for value in splitted_strings if len(value) > 0]
+    # # remove empty strings
+    # sections = [value for value in splitted_strings if len(value) > 0]
 
-    sections1 = [value for value in sections if value!="```"]
+    # sections1 = [value for value in sections if value!="```"]
 
-    return sections1
+    return response
