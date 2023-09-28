@@ -43,7 +43,7 @@ def merge_content(topic, content_1_str, content_2_str):
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo-16k",
         messages=[
-            {"role": "system", "content": "You are a seasoned article merger, experienced in merging articles to create 'very detailed' up-to-date readable article and where possible in tutorial style."},
+            {"role": "system", "content": "You are a seasoned article merger, experienced in merging articles to create 'very detailed' up-to-date readable articles. Don't talk about the articles individually"},
             {"role": "user", "content": f"I would give you a topic and two different articles:\n\n{content_1_str}\n\nand\n\n{content_2_str}\n\nCombine these two articles to create a new article based on the topic:\n\n{topic}"}
         ],
         temperature=0.6,
