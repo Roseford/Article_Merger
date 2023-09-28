@@ -54,8 +54,12 @@ async def merge_texts(request: Request, topic: Topic, docs: Docs):
     doc1 = docs.doc1
     doc2 = docs.doc2
 
+    doc1_summary = summarize_docs1(doc1)
+
+    doc2_summary = summarize_docs2(doc2)
+
     # Use OpenAI to merge the content based on the topic
-    merged_content = merge_content(topic.topic, doc1, doc2)
+    merged_content = merge_content(topic.topic, doc1_summary, doc2_summary)
 
     if not merged_content:
        raise HTTPException(status_code=400, detail="Could not merge documents")
