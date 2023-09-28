@@ -6,7 +6,7 @@ from ..beautifulSoup import scrape_data_from_url  # Import the scrape_data_from_
 
 router = APIRouter(tags=["routes"], prefix="/merge_articles")
 
-@router.get("/link/", status_code=status.HTTP_201_CREATED,)
+@router.post("/link/", status_code=status.HTTP_201_CREATED,)
 async def merge_link(request: Request, links: Links, topic: Topic):
     # Extract the URLs from the Links schema
     url1_list, url2_list = links.link1, links.link2
@@ -48,7 +48,7 @@ async def merge_link(request: Request, links: Links, topic: Topic):
     return {"merged_content": merged_content}
 
 
-@router.get("/texts/", status_code=status.HTTP_201_CREATED,)
+@router.post("/texts/", status_code=status.HTTP_201_CREATED,)
 async def merge_texts(request: Request, topic: Topic, docs: Docs):
     # Extract the topic and the two different text strings
     doc1 = docs.doc1
